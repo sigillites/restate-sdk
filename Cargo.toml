@@ -1,6 +1,6 @@
 [package]
 name = "restate-sdk"
-version = "0.5.0"
+version = "0.5.1"
 publish = ["sigillites"]
 edition = "2021"
 description = "Restate SDK for Rust"
@@ -48,7 +48,12 @@ hyper-util = { version = "0.1", features = [
 pin-project-lite = "0.2"
 rand = { version = "0.9", optional = true }
 regress = "0.10"
-reqwest = { version = "0.12", optional = true, features = ["json"] }
+reqwest = { version = "0.12", default-features = false, optional = true, features = [
+  "json",
+  "http2",
+  "charset",
+  "rustls-tls",
+] }
 restate-sdk-macros = { version = "0.5", registry = "sigillites" }
 restate-sdk-shared-core = { version = "0.3.0", features = [
   "request_identity",
