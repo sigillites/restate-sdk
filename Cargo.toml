@@ -1,6 +1,6 @@
 [package]
 name = "restate-sdk"
-version = "0.7.0"
+version = "0.7.1"
 publish = ["sigillites"]
 edition = "2021"
 description = "Restate SDK for Rust"
@@ -51,7 +51,7 @@ hyper-util = { version = "0.1", features = [
 ], optional = true }
 pin-project-lite = "0.2"
 rand = { version = "0.9", optional = true }
-regress = "=0.10.3"
+regress = "0.10.3"
 reqwest = { version = "0.12", default-features = false, optional = true, features = [
   "json",
   "http2",
