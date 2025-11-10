@@ -228,6 +228,8 @@ pub mod http_server;
 pub mod hyper;
 #[cfg(feature = "ingress_client")]
 pub mod ingress_client;
+#[cfg(feature = "lambda")]
+pub mod lambda;
 pub mod serde;
 
 /// Entry-point macro to define a Restate [Service](https://docs.restate.dev/concepts/services#services-1).
@@ -511,13 +513,16 @@ pub mod prelude {
     #[cfg(feature = "http_server")]
     pub use crate::http_server::HttpServer;
 
+    #[cfg(feature = "lambda")]
+    pub use crate::lambda::LambdaEndpoint;
+
     pub use crate::context::{
         CallFuture, Context, ContextAwakeables, ContextClient, ContextPromises, ContextReadState,
         ContextSideEffects, ContextTimers, ContextWriteState, HeaderMap, InvocationHandle,
         ObjectContext, Request, RunFuture, RunRetryPolicy, SharedObjectContext,
         SharedWorkflowContext, WorkflowContext,
     };
-    pub use crate::endpoint::Endpoint;
+    pub use crate::endpoint::{Endpoint, HandlerOptions, ServiceOptions};
     pub use crate::errors::{HandlerError, HandlerResult, TerminalError};
     pub use crate::serde::Json;
 }

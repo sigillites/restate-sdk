@@ -229,6 +229,20 @@ impl<'a> ServiceGenerator<'a> {
                     input: #input_schema,
                     output: #output_schema,
                     ty: #handler_ty,
+                    documentation: None,
+                    metadata: Default::default(),
+                    abort_timeout: None,
+                    inactivity_timeout: None,
+                    journal_retention: None,
+                    idempotency_retention: None,
+                    workflow_completion_retention: None,
+                    enable_lazy_state: None,
+                    ingress_private: None,
+                    retry_policy_initial_interval: None,
+                    retry_policy_max_interval: None,
+                    retry_policy_max_attempts: None,
+                    retry_policy_exponentiation_factor: None,
+                    retry_policy_on_max_attempts: None,
                 }
             }
         });
@@ -243,6 +257,19 @@ impl<'a> ServiceGenerator<'a> {
                         name: ::restate_sdk::discovery::ServiceName::try_from(#service_literal.to_string())
                             .expect("Service name valid"),
                         handlers: vec![#( #handlers ),*],
+                        documentation: None,
+                        metadata: Default::default(),
+                        abort_timeout: None,
+                        inactivity_timeout: None,
+                        journal_retention: None,
+                        idempotency_retention: None,
+                        enable_lazy_state: None,
+                        ingress_private: None,
+                        retry_policy_initial_interval: None,
+                        retry_policy_max_interval: None,
+                        retry_policy_max_attempts: None,
+                        retry_policy_exponentiation_factor: None,
+                        retry_policy_on_max_attempts: None,
                     }
                 }
             }
