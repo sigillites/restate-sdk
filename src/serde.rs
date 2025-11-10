@@ -474,6 +474,6 @@ impl<T> PayloadMetadata for Json<T> {
 #[cfg(feature = "schemars")]
 impl<T: schemars::JsonSchema> PayloadMetadata for Json<T> {
     fn json_schema() -> Option<serde_json::Value> {
-        Some(schemars::schema_for!(T).to_value())
+        serde_json::to_value(schemars::schema_for!(T)).ok()
     }
 }
